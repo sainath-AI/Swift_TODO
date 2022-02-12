@@ -20,15 +20,16 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="842"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="bBT-mU-Tax">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="MlP-MM-ns8">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bBT-mU-Tax" id="IRy-wf-HaH">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MlP-MM-ns8" id="JmE-Va-dlS">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -95,10 +96,27 @@
                     <view key="view" contentMode="scaleToFill" id="qfR-wc-00V">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peD-dK-Hjw">
+                                <rect key="frame" x="12" y="56" width="390" height="794"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="nJT-vL-hPh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nJT-vL-hPh" firstAttribute="bottom" secondItem="peD-dK-Hjw" secondAttribute="bottom" constant="12" id="BRF-LR-GWQ"/>
+                            <constraint firstItem="peD-dK-Hjw" firstAttribute="leading" secondItem="nJT-vL-hPh" secondAttribute="leading" constant="12" id="V8r-wp-qgS"/>
+                            <constraint firstItem="peD-dK-Hjw" firstAttribute="top" secondItem="nJT-vL-hPh" secondAttribute="top" constant="12" id="WDj-zX-FPC"/>
+                            <constraint firstItem="nJT-vL-hPh" firstAttribute="trailing" secondItem="peD-dK-Hjw" secondAttribute="trailing" constant="12" id="azI-YS-XpZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Uh8-D1-Lew"/>
+                    <connections>
+                        <outlet property="lable" destination="peD-dK-Hjw" id="erD-0L-JCE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IC8-l7-Efv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

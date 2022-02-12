@@ -15,12 +15,46 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Tasks"
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        // setUp For Initial notes .. empty edge case
+        
+        if  !UserDefaults().bool(forKey: "setup") {
+            UserDefaults().set(true, forKey: "setup")
+            UserDefaults().set(0, forKey: "count")
+
+        }
+        updateTasks()
         // Get All current saved tasks
     }
     
+    func updateTasks(){
+        
+        tasks.removeAll()
+        
+        guard let count = UserDefaults().value(forKey: "count") as? Int else {
+           return
+        }
+        for x in 0..<count {
+          if let task = UserDefaults().value(forKey: "task_\(x+1)")as? String
+          {
+              tasks.append(task)
+          }
+        }
+        tableView.reloadData()
+    }
+    
     @IBAction func didTapAdd(){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "entry") as! EntryViewController
+        let vc = storyboard?.instantiateViewController(identifier: "entry") as! EntryViewController
         vc .title =  "new Task"
+        vc.update = {
+            DispatchQueue.main.async {
+                self.updateTasks()
+
+            }
+        }
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -32,6 +66,10 @@ extension ViewController: UITableViewDelegate{
        
         tableView.deselectRow(at: indexPath, animated: true)
         
+        let vc = storyboard?.instantiateViewController(identifier: "task") as! TaskViewController
+        vc .title =  "new Task"
+        vc.task = tasks[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
